@@ -1,2 +1,2 @@
-# Mess-Management-Project
-This is the repository of Mess management project.
+# Mess-App
+This is the repository of Mess App targeted for mess committee members only.

@@ -8,3 +8,8 @@
 /build
 /captures
 .externalNativeBuild
+backend/.idea/
+backend/.vscode/
+backend/db.sqlite3
+backend/user_profile/migrations/
+backend/review/migrations/

@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">IIITA Mess</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ques1">Cleanliness of Dining Hall</string>
+    <string name="ques2">Cleanliness of Kitchen</string>
+    <string name="ques3">Staff Attendance</string>
+    <string name="ques4">Workers’ Dress</string>
+    <string name="ques5">Caps, Aprons, Gloves, ID Cards</string>
+    <string name="ques6">Food Quality</string>
+    <string name="ques7">Utensils</string>
+    <string name="ques8">Washing Area</string>
+    <string name="ques9">Kitchen Chores</string>
+    <string name="ques10">Veg. Store</string>
+    <string name="ques11">Ratio Store</string>
+    <string name="ques12">Pests, Insects, Flies</string>
+    <string name="ques13">Refrigerator</string>
+    <string name="ques14">Brand Check</string>
+    <string name="ques15">Coupon Sales</string>
+    <string name="ques16">Coupon Payment Details</string>
+    <string name="ques17">Menu</string>
+    <string name="ques18">Complaint Register</string>
+    <string name="ques1week">Wash Basin</string>
+    <string name="ques2week">Refrigerator Condition</string>
+    <string name="ques3week">Taps</string>
+    <string name="ques4week">AC Check</string>
+    <string name="ques1month">Cleaning of Water Cooler</string>
+    <string name="ques2month">Aqua Guard Servicing</string>
+    <string name="ques3month">Grass Behind the mess premises</string>
 </resources>

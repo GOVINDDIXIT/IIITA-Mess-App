@@ -1,13 +1,15 @@
 package com.iiita.messmanagement;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setNavigationBarColor();
         initUI();
+        checkLogin();
+    }
+
+    private void checkLogin() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        Boolean sign = pref.getBoolean("isSignedIn", false);
+        if (!sign) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
     }
 
     private void setNavigationBarColor() {
@@ -34,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.gradient_light));
+            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
         }
     }
 
@@ -94,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 2);
+        navigationTabBar.setViewPager(viewPager, 1);
         navigationTabBar.setBgColor(Color.parseColor("#e0f7fa"));
         navigationTabBar.setInactiveColor(Color.parseColor("#000000"));
         navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

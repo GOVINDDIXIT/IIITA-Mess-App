@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<style>
+    .outer {
+        margin: 0;
+    }
+
+    .card-custom {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        text-align: center;
+        font-family: arial;
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0 30px;
+    }
+
+    .title-custom {
+        color: grey;
+        font-size: 18px;
+    }
+
+    .button-custom {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .a-custom {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+
+    .button-custom:hover,
+    .a-custom:hover {
+        opacity: 0.7;
+    }
+</style>
+<header class="masthead" style="background-image: url({% static 'img/iiitap2.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>Meet The Developers</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 mx-auto">
+                <div class="outer">
+                    <div class="card-custom">
+                        <img src={% static 'img/vaibhav.jpeg' %} alt="Vaibhav" style="width:100%">
+                        <h1>Vaibhav Gupta</h1>
+                        <p class="title">B.Tech Student</p>
+                        <div style="margin: 24px 0;">
+                            <a href="https://www.linkedin.com/in/vaibhavgupta79/" class="a-custom">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.facebook.com/vaib79" class="a-custom">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-custom">
+                        <img src={% static 'img/pranjal.jpeg' %} alt="Pranjal" style="width:100%">
+                        <h1>Pranjal Gupta</h1>
+                        <p class="title">B.Tech Student</p>
+                        <div style="margin: 24px 0;">
+                            <a href="https://www.linkedin.com/in/pranjal-gupta-8a16ba165/" class="a-custom">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.facebook.com/pranjal.gupta.562" class="a-custom">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-custom">
+                        <img src={% static 'img/govind-1.jpeg' %} alt="Govind" style="width:100%">
+                        <h1>Govind Dixit</h1>
+                        <p class="title">B.Tech Student</p>
+                        <div style="margin: 24px 0;">
+                            <a href="https://www.linkedin.com/in/govind-dixit-58708413a" class="a-custom">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.facebook.com/govinddixit05" class="a-custom">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<hr> {% endblock %}

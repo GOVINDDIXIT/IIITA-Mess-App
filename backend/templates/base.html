@@ -24,6 +24,8 @@
     <!-- Custom styles for this template -->
     <link href={% static 'css/clean-blog.min.css' %} rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -45,7 +47,7 @@
                         <a class="nav-link" href={% url 'previous_report' %}>Previous Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Developers</a>
+                        <a class="nav-link" href={% url 'developers' %}>Developers</a>
                     </li>
                 </ul>
             </div>
@@ -60,7 +62,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://github.com/GOVINDDIXIT/Mess-App-Committe-Members-">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>

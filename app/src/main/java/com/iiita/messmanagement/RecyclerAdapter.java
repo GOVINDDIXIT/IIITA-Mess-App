@@ -3,30 +3,30 @@ package com.iiita.messmanagement;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
-    private final int COUNTDOWN_RUNNING_TIME = 500;
     private List<Report> reportList;
-    private Animation animationUp;
-    private Animation animationDown;
     private Context context;
-
 
     public RecyclerAdapter(List<Report> reportList, Context context) {
         this.reportList = reportList;
         this.context = context;
+    }
+
+    public List<Report> getReportList() {
+        return reportList;
     }
 
     @NonNull
@@ -40,40 +40,49 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(@NonNull final RecyclerAdapter.MyViewHolder holder, final int position) {
         final Report report = reportList.get(position);
         holder.question.setText(report.getQuestion());
+        if (report.isChecked()) {
+            holder.checkBox.setChecked(true);
+        } else {
+            holder.checkBox.setChecked(false);
+        }
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.checkBox.isChecked())
+                    report.setChecked(true);
+                else
+                    report.setChecked(false);
+            }
+        });
+
         holder.imageView.setOnClickListener(new View.OnClickListener() {
-            int isDown = 0;
+
 
             @Override
             public void onClick(View view) {
-                holder.checkBox.setOnClickListener(new View.OnClickListener() {
+
+                holder.editText.addTextChangedListener(new TextWatcher() {
                     @Override
-                    public void onClick(View view) {
-                        if (!holder.checkBox.isChecked()) {
-                            holder.editText.setVisibility(View.GONE);
-                            holder.imageView.setImageResource(R.drawable.ic_arrow_drop_down);
-                        }
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        report.setAnswer(holder.editText.getText().toString());
                     }
                 });
-                if (holder.checkBox.isChecked()) {
-                    report.setChecked(true);
-                    report.setAnswer(holder.editText.getText().toString());
-                    holder.editText.setVisibility(View.VISIBLE);
-                    holder.imageView.setImageResource(R.drawable.ic_arrow_drop_up);
-                    isDown++;
-//                    holder.editText.startAnimation(animationDown);
+                if (holder.editText.getVisibility() == View.VISIBLE) {
+                    holder.editText.setVisibility(View.GONE);
                 } else {
-                    holder.editText.setVisibility(View.GONE);
-                    holder.imageView.setImageResource(R.drawable.ic_arrow_drop_down);
-                    Toast.makeText(context, "Check the item", Toast.LENGTH_SHORT).show();
-//                    holder.editText.startAnimation(animationUp);
-                }
-                if (isDown % 2 == 0) {
-                    holder.editText.setVisibility(View.GONE);
-                    holder.imageView.setImageResource(R.drawable.ic_arrow_drop_down);
-                    isDown = 0;
+                    holder.editText.setVisibility(View.VISIBLE);
                 }
             }
-
         });
     }
 

@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from .models import Review
+from . import models
 
 
-class ReviewAdmin(admin.ModelAdmin):
-    readonly_fields = ('timestamp',)
-    list_display = ['user', 'ques', 'rating', 'timestamp']
+class ReviewQuestionAdmin(admin.ModelAdmin):
+
+    list_display = ['ques', 'check', 'timestamp', 'ques_type']
 
 
-admin.site.register(Review, ReviewAdmin)
+admin.site.register(models.ReviewQuestion, ReviewQuestionAdmin)

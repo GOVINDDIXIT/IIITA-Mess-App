@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<header class="masthead" style="background-image: url({% static 'img/iiitap2.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    {% if status %}
+                    <h1>Mess Report [{{ report.first.timestamp.date }}]</h1>
+                    <h2 class="subheading">BH-3, IIITA</h2>
+                    <span class="meta">Posted on {{ report.first.timestamp }}</span>
+                    {% else %}
+                    <h1>No Report Found For {{date}}</h1>
+                    <h2 class="subheading">BH-3, IIITA</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+{% if status %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h2>Report:</h2>
+                <table class="table">
+                    <thead>
+                        <th>Daily Checks</th>
+                        <th>Status</th>
+                        <th>Comment (If Any)</th>
+                    </thead>
+                    <tbody>
+                        {% for item in report %}
+                        <tr>
+                            <td>{{ item.ques }}</td>
+                            <td>{% if item.check %}
+                                <img src={% static 'img/right.png' %} style="width:25px"> {%else%}
+                                <img src={% static 'img/cross.png' %} style="width:25px">{%endif%}
+                            </td>
+                            <td>{% if item.comment %}
+                                <span style="color:black">{{item.comment}}</span>{%else%}
+                                <span style="color:#989898">None</span>{%endif%}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>
+{% endif %}
+
+<hr> {% endblock %}

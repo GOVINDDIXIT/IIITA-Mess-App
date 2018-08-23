@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         getResources().getDrawable(R.drawable.ic_rate),
                         Color.parseColor(colors[2]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
-                        .title("Rate")
+                        .title("Check List")
 //                        .badgeTitle("state")
                         .build()
         );

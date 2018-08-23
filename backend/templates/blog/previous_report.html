@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<style>
+    input[type="date"] {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        padding-left: 10px;
+        border: 1px solid white;
+        height: 40px;
+    }
+
+    .button-submit {
+        margin-left: 10px;
+    }
+</style>
+<header class="masthead" style="background-image: url({% static 'img/iiitap2.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>Previous Reports</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div>
+                            <label for="date">
+                                <h2 class="subheading" style="margin-bottom: 0">Select A Date</h2>
+                            </label>
+                            <input type="date" id="date" name="date" required>
+                            <button class="btn btn-primary button-submit" type="submit">Submit</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

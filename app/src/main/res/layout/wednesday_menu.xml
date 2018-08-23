@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#55ffffff"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFF8D">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
         android:text="WEDNESDAY"
-        android:textColor="#a1000000"
+        android:textColor="#7f0000"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Aaloo pyaaz paratha, Green chutney, Dahi"
+            android:text="Onion Tomato Uttapam/Pav Bhaji"
             android:textSize="16sp" />
 
         <TextView
@@ -68,7 +68,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Palak Aaloo/Aaloo Matar, Chana Daal, Dahi, Sambar"
+            android:text="Kadhi Pakoda, Arhar Dal, Dahi"
             android:textSize="16sp" />
 
         <TextView
@@ -100,7 +100,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Bhindi Fry / Lauki Chana Dal, Moong Dal,Boondi Raita"
+            android:text="Chilli Potato, Fried Rice, Dal Fry, Ice Cream"
             android:textSize="16sp" />
 
         <TextView
@@ -108,7 +108,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Dum Aaloo, Sada Paratha, Chana Dal, Gulab Jamun"
+            android:text="ADD ONs- Omlette, Paneer Fried Rice,
+Chicken Fried Rice, Anda Bhurji, Butter Chicken, Matar Paneer
+"
             android:textSize="16sp" />
 
 

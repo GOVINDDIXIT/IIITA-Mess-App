@@ -2,6 +2,7 @@ package com.iiita.messmanagement.fragment;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -38,7 +39,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,8 +60,9 @@ public class RateFragment extends Fragment {
     private FloatingActionButton floatingActionButton;
     private TextView textView;
     private ProgressDialog pDialog;
-
+    private LinearLayout linearLayout;
     private String responseCode = "";
+    private SharedPreferences pref;
 
     public RateFragment() {
         // Required empty public constructor
@@ -77,7 +82,7 @@ public class RateFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rate, container, false);
         viewSave = view;
-
+        linearLayout = viewSave.findViewById(R.id.id_done_for_today);
         recyclerView = view.findViewById(R.id.recycler_view);
         mAdapter = new RecyclerAdapter(reportList, getContext());
         final RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -90,7 +95,24 @@ public class RateFragment extends Fragment {
         recyclerView.setItemViewCacheSize(reportList.size());
         textView = view.findViewById(R.id.json);
 
+        pref = getContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+
+        String date = pref.getString("doneToday", "");
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String todaysDate = df.format(c);
         floatingActionButton = view.findViewById(R.id.upload);
+        if (todaysDate.equalsIgnoreCase(date)) {
+            floatingActionButton.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            floatingActionButton.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +141,8 @@ public class RateFragment extends Fragment {
         return view;
     }
 
-    private void sendDataToDatabase(ArrayList<String> listAnswer, ArrayList<Boolean> listCheck) {
+    private void sendDataToDatabase
+            (ArrayList<String> listAnswer, ArrayList<Boolean> listCheck) {
         JSONArray jsonArray = new JSONArray();
         for (int i = 0; i < listAnswer.size(); i++) {
             JSONObject jsonObject = new JSONObject();
@@ -142,8 +165,6 @@ public class RateFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-//        textView.setText(jsonObject.toString());
-
         sendDataToDatabase(jsonObject.toString());
 
         if (responseCode.equals("201") || responseCode.equals("500")) {
@@ -153,11 +174,18 @@ public class RateFragment extends Fragment {
                 Toast.makeText(getContext(), "Report Already Sent", Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(getContext(), "Report Successfully Sent", Toast.LENGTH_SHORT).show();
-            recyclerView.setVisibility(View.GONE);
             floatingActionButton.setVisibility(View.GONE);
-            LinearLayout linearLayout = viewSave.findViewById(R.id.id_done_for_today);
             linearLayout.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+            SharedPreferences.Editor editor = pref.edit();
+            Date c = Calendar.getInstance().getTime();
+            System.out.println("Current time => " + c);
+
+            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+            String formattedDate = df.format(c);
+
+            editor.putString("doneToday", formattedDate);
+            editor.apply();
         }
     }
 
@@ -229,6 +257,19 @@ public class RateFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 responseCode = response;
+                if (responseCode == "403") {//
+                    floatingActionButton.setVisibility(View.GONE);
+                    linearLayout.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    Date c = Calendar.getInstance().getTime();
+                    System.out.println("Current time => " + c);
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                    String formattedDate = df.format(c);
+                    editor.putString("doneToday", formattedDate);
+                    editor.apply();
+                }
                 Log.i("VOLLEY", response);
             }
         }, new Response.ErrorListener() {

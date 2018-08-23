@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkLogin() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         Boolean sign = pref.getBoolean("isSignedIn", false);
+        String done = pref.getString("doneToday", "");
         if (!sign) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();

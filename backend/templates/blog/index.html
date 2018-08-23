@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <th>Question</th>
+            <th>Checked</th>
+            <th>Comment (If Any)</th>
+        </thead>
+        <tbody>
+            {% for post in posts %} {% for report in post %}
+            <tr>
+                <td>{{ report.ques }}</td>
+                <td>{{ report.check }}</td>
+                <td>{{ report.comment }}</td>
+            </tr>
+            {% endfor %} {%endfor%}
+        </tbody>
+    </table>
+
+    {% if posts.has_other_pages %}
+    <ul class="pagination">
+        {% if posts.has_previous %}
+        <li>
+            <a href="?page={{ users.previous_page_number }}">&laquo;</a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <span>&laquo;</span>
+        </li>
+        {% endif %} {% for i in posts.paginator.page_range %} {% if posts.number == i %}
+        <li class="active">
+            <span>{{ i }}
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+        {% else %}
+        <li>
+            <a href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endif %} {% endfor %} {% if posts.has_next %}
+        <li>
+            <a href="?page={{ posts.next_page_number }}">&raquo;</a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <span>&raquo;</span>
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+
+</body>
+
+</html>

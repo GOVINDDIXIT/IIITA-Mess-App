@@ -1,46 +1,87 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<script>
+    $(".hover").mouseleave(
+        function () {
+            $(this).removeClass("hover");
+        }
+    );
+
+</script>
 <style>
-    .outer {
-        margin: 0;
-    }
-
-    .card-custom {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        text-align: center;
-        font-family: arial;
+    @import url(https://fonts.googleapis.com/css?family=Lato);
+    @import url(https://fonts.googleapis.com/css?family=Oswald);
+    @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+    .snip1559 {
+        font-family: 'Lato', Arial, sans-serif;
+        position: relative;
         display: inline-block;
-        margin: 20px 0px;
-        padding: 0 30px;
-    }
-
-    .title-custom {
-        color: grey;
-        font-size: 18px;
-    }
-
-    .button-custom {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
+        overflow: hidden;
+        margin: 8px;
+        min-width: 250px;
+        max-width: 310px;
         width: 100%;
-        font-size: 18px;
+        background-color: #ffffff;
+        color: #2B2B2B;
+        text-align: center;
+        font-size: 16px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     }
 
-    .a-custom {
+    .snip1559 * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .snip1559 .profile-image {
+        padding: 15% 10% 0;
+    }
+
+    .snip1559 .profile-image img {
+        max-width: 100%;
+        vertical-align: top;
+        position: relative;
+        border-radius: 50%;
+        max-width: 40%;
+    }
+
+    .snip1559 figcaption {
+        padding: 5% 10% 15%;
+    }
+
+    .snip1559 h3 {
+        font-family: 'Oswald';
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        margin: 3px 0;
+    }
+
+    .snip1559 h5 {
+        font-weight: 400;
+        margin: 0;
+        text-transform: uppercase;
+        color: #888;
+        letter-spacing: 1px;
+    }
+
+    .snip1559 .icons i {
+        color: #999;
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 1.5em;
+    }
+
+    .snip1559 .icons i:hover {
+        color: #555;
+    }
+
+    .snip1559 .icons i a {
         text-decoration: none;
-        font-size: 22px;
-        color: black;
     }
 
-    .button-custom:hover,
-    .a-custom:hover {
-        opacity: 0.7;
+    body {
+        text-align: center;
     }
 </style>
 <header class="masthead" style="background-image: url({% static 'img/iiitap2.jpg' %})">
@@ -63,47 +104,60 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-12 mx-auto">
-                <div class="outer">
-                    <div class="card-custom">
-                        <img src={% static 'img/vaibhav.jpeg' %} alt="Vaibhav" style="width:100%">
-                        <h1>Vaibhav Gupta</h1>
-                        <p class="title">B.Tech Student</p>
-                        <div style="margin: 24px 0;">
-                            <a href="https://www.linkedin.com/in/vaibhavgupta79/" class="a-custom">
-                                <i class="fa fa-linkedin"></i>
+                <figure class="snip1559">
+                    <div class="profile-image">
+                        <img src={% static 'img/govind-1.jpeg' %} alt="Govind" />
+                    </div>
+                    <figcaption>
+                        <h3>Govind Dixit</h3>
+                        <h5>Android Developer</h5>
+                        <p>B.Tech Student</p>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/govinddixit05">
+                                <i class="ion-social-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/vaib79" class="a-custom">
-                                <i class="fa fa-facebook"></i>
+                            <a href="https://www.linkedin.com/in/govind-dixit-58708413a">
+                                <i class="ion-social-linkedin"></i>
                             </a>
                         </div>
+                    </figcaption>
+                </figure>
+                <figure class="snip1559">
+                    <div class="profile-image">
+                        <img src={% static 'img/pranjal.jpeg' %} alt="Pranjal" />
                     </div>
-                    <div class="card-custom">
-                        <img src={% static 'img/pranjal.jpeg' %} alt="Pranjal" style="width:100%">
-                        <h1>Pranjal Gupta</h1>
-                        <p class="title">B.Tech Student</p>
-                        <div style="margin: 24px 0;">
-                            <a href="https://www.linkedin.com/in/pranjal-gupta-8a16ba165/" class="a-custom">
-                                <i class="fa fa-linkedin"></i>
+                    <figcaption>
+                        <h3>Pranjal Gupta</h3>
+                        <h5>Android Developer</h5>
+                        <p>B.Tech Student</p>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/pranjal.gupta.562">
+                                <i class="ion-social-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/pranjal.gupta.562" class="a-custom">
-                                <i class="fa fa-facebook"></i>
+                            <a href="https://www.linkedin.com/in/pranjal-gupta-8a16ba165/">
+                                <i class="ion-social-linkedin"></i>
                             </a>
                         </div>
+                    </figcaption>
+                </figure>
+                <figure class="snip1559">
+                    <div class="profile-image">
+                        <img src={% static 'img/vaibhav.jpeg' %} alt="Vaibhav" />
                     </div>
-                    <div class="card-custom">
-                        <img src={% static 'img/govind-1.jpeg' %} alt="Govind" style="width:100%">
-                        <h1>Govind Dixit</h1>
-                        <p class="title">B.Tech Student</p>
-                        <div style="margin: 24px 0;">
-                            <a href="https://www.linkedin.com/in/govind-dixit-58708413a" class="a-custom">
-                                <i class="fa fa-linkedin"></i>
+                    <figcaption>
+                        <h3>Vaibhav Gupta</h3>
+                        <h5>Web Developer</h5>
+                        <p>B.Tech Student</p>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/vaib79">
+                                <i class="ion-social-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/govinddixit05" class="a-custom">
-                                <i class="fa fa-facebook"></i>
+                            <a href="https://www.linkedin.com/in/vaibhavgupta79/">
+                                <i class="ion-social-linkedin"></i>
                             </a>
                         </div>
-                    </div>
-                </div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </div>

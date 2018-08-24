@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+{% extends 'base.html' %} {% load staticfiles %} {% block title %}Mess Report - {{ report.first.timestamp.date }}{% endblock %} {% block content %}
 <header class="masthead" style="background-image: url({% static 'img/iiitap2.jpg' %})">
     <div class="overlay"></div>
     <div class="container">

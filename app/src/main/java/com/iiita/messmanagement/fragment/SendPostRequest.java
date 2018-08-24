@@ -35,7 +35,7 @@ class SendPostRequest extends AsyncTask<String, Void, String> {
         try {
 
             // Defined URL  where to send data
-            URL url = new URL("/media/webservice/httppost.php");
+            URL url = new URL("http://172.19.15.74:8000");
 
             // Send POST data request
 

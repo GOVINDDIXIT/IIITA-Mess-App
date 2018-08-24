@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkLogin() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         Boolean sign = pref.getBoolean("isSignedIn", false);
+        String done = pref.getString("doneToday", "");
         if (!sign) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
@@ -52,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUI() {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
-        registeredFragments.append(0,new com.iiita.messmanagement.fragment.MenuFragment());
-        registeredFragments.append(1,new com.iiita.messmanagement.fragment.RateFragment());
-        registeredFragments.append(2,new com.iiita.messmanagement.fragment.AboutFragment());
+        registeredFragments.append(0, new com.iiita.messmanagement.fragment.MenuFragment());
+        registeredFragments.append(1, new com.iiita.messmanagement.fragment.RateFragment());
+        registeredFragments.append(2, new com.iiita.messmanagement.fragment.AboutFragment());
 
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(final int position) {
                 navigationTabBar.getModels().get(position).hideBadge();
+//                hideKeyboard();
             }
 
             @Override
@@ -140,5 +143,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 200);
+    }
+
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }

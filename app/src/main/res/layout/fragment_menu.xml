@@ -9,12 +9,13 @@
         android:id="@+id/menu_view_pager"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:background="@drawable/viewpager_background"/>
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="16dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="0dp" />
 </RelativeLayout>

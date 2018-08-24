@@ -1,16 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="32dp"
     tools:context="com.iiita.messmanagement.fragment.AboutFragment">
 
-    <Button
-        android:id="@+id/bnSignout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Logout"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/circular_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="128dp" />
+
+        <include
+            android:id="@+id/user_card_about_id"
+            layout="@layout/user_about_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="76dp" />
+
+
+        <include
+            layout="@layout/developer_about_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="32dp"
+            android:layout_marginHorizontal="16dp" />
+
+    </RelativeLayout>
 
 </FrameLayout>

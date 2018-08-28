@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         tvUser = findViewById(R.id.input_roll);
         tvPassword = findViewById(R.id.input_password);
-        if (tvUser.getText().toString().equalsIgnoreCase("lit2017018")) {
-            if (tvPassword.getText().toString().equals("hello")) {
+        if (tvUser.getText().toString().equalsIgnoreCase("mess")) {
+            if (tvPassword.getText().toString().equals("bh3")) {
                 editor.putBoolean("isSignedIn", true);
                 editor.apply();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));

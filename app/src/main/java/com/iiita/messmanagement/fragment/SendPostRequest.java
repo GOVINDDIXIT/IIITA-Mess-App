@@ -35,7 +35,7 @@ class SendPostRequest extends AsyncTask<String, Void, String> {
         try {
 
             // Defined URL  where to send data
-            URL url = new URL("http://172.19.15.74:8000");
+            URL url = new URL("http://vaib79.pythonanywhere.com/");
 
             // Send POST data request
 

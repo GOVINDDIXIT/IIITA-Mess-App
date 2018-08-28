@@ -250,7 +250,7 @@ public class RateFragment extends Fragment {
 
     public void sendDataToDatabase(String json) {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        String URL = "http://172.19.15.74:8000/api/v1/review/";
+        String URL = "http://vaib79.pythonanywhere.com/api/v1/review/";
         final String requestBody = json;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {

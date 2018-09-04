@@ -11,23 +11,19 @@ from review.models import ReviewQuestion
 
 
 def homepage(request):
-    reports = []
     status = True
-    try:
-        date = ReviewQuestion.objects.all().order_by(
-            '-timestamp').first().timestamp.date()
-    except:
+    all_objects = ReviewQuestion.objects.all()
+    if not all_objects.exists():
         status = False
-        date = timezone.now().date()
-    queryset = ReviewQuestion.objects.filter(
-        timestamp__date=date, ques_type='DAILY')
-    while queryset.exists():
+    all_dates_set = {object_.timestamp.date() for object_ in all_objects}
+    all_dates_list = list(all_dates_set)
+    all_dates_list.sort(reverse=True)
+    reports = []
+    for date in all_dates_list:
+        queryset = ReviewQuestion.objects.filter(timestamp__date=date, ques_type='DAILY')
         reports.append(queryset)
-        date = date - datetime.timedelta(days=1)
-        queryset = ReviewQuestion.objects.filter(
-            timestamp__date=date, ques_type='DAILY')
     page = request.GET.get('page', 1)
-    paginator = Paginator(reports, 10)
+    paginator = Paginator(reports, 20)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:

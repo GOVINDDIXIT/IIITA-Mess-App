@@ -13,3 +13,5 @@ backend/.vscode/
 backend/db.sqlite3
 backend/user_profile/migrations/
 backend/review/migrations/
+backend/db.json
+backend/templates/db.sqlite3

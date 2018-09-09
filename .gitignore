@@ -15,3 +15,4 @@ backend/user_profile/migrations/
 backend/review/migrations/
 backend/db.json
 backend/templates/db.sqlite3
+__pycache__

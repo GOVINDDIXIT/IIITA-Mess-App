@@ -1,0 +1,51 @@
+{
+  "monday": {
+    "breakfast": "Aaloo pyaaz paratha, Green chutney, Dahi",
+    "lunch": "Palak Aaloo/ Aaloo Matar, Chana Dal, Dahi, Sambhar",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Patta Gobhi Matar, Dal, Rasgulla",
+    "addon2": "Omlette, Paneer Fried Rice,Chicken Fried Rice, Anda Bhurji"
+  },
+  "tuesday": {
+    "breakfast": "Poha Jalebi",
+    "lunch": "Bhindi Fry, Moong Dal, Boondi Raita",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Dum Aaloo, Sada Paratha, Chana Dal, Gulab Jamun",
+    "addon2": "Omlette, Paneer Fried Rice, Chicken Fried Rice, Anda Bhurji"
+  },
+  "wednesday": {
+    "breakfast": "Onion Tomato Uttapam/Pav Bhaji",
+    "lunch": "Jeera Aaloo , Arhar Dal, Dahi",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Chilli Potato, Fried Rice, Dal Fry, Ice Cream",
+    "addon2": "Omlette, Paneer Fried Rice, Chicken Fried Rice, Anda Bhurji, Butter Chicken, Matar Paneer"
+  },
+  "thursday": {
+    "breakfast": "Macaroni",
+    "lunch": "Rajma,  Kadhi Pakoda,  Veg. Raita",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Parwal, Mix Dal, Barfi",
+    "addon2": "Omlette, Paneer Fried Rice, Chicken Fried Rice, Anda Bhurji"
+  },
+  "friday": {
+    "breakfast": "Vada Sambhar, coconut chutney",
+    "lunch": "Chole Bhature, Dahi",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Aloo Beans, Malka Ki Dal, Laddoo",
+    "addon2": "Omlette, Paneer Fried Rice, Chicken Fried Rice, Anda Bhurji, Shahi Paneer, Anda Curry"
+  },
+  "saturday": {
+    "breakfast": "Samosa chola/Gobhi Parantha",
+    "lunch": "Mix Veg. , Dal, Veg. Raita",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Arbi Ki Sabzi, Arhar Dal, Chocolate",
+    "addon2": "Omlette, Paneer Fried Rice, Chicken Fried Rice, Anda Bhurji"
+  },
+  "sunday": {
+    "breakfast": "Dosa sambar, coconut chutney",
+    "lunch": "Veg. Kofta, Dal Fry, Dahi",
+    "addon1": "Anda Bhurji, Paneer Bhurji, Omlette,",
+    "dinner": "Kala Chana, Mix Dal,Puri Sabzi, Sooji Halwa",
+    "addon2": "- Omlette, Paneer Fried Rice,Chicken Fried Rice, Anda Bhurji, Kadhai Paneer, Chicken Curry"
+  }
+}

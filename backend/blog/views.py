@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from review.models import ReviewQuestion
+from review_ques.models import ReviewQuestion
 
 
 def homepage(request):

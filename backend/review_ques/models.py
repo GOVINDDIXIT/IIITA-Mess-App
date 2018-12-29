@@ -1,10 +1,15 @@
 from django.db import models
+from django.utils import timezone
 
 QUESTION_TYPES = (
     ('DAILY', 'DAILY'),
     ('WEEKLY', 'WEEKLY'),
     ('MONTHLY', 'MONTHLY')
 )
+
+
+def get_current_time():
+    return timezone.now()
 
 
 class ReviewQuestion(models.Model):
@@ -15,7 +20,7 @@ class ReviewQuestion(models.Model):
     comment = models.CharField(
         max_length=300, blank=True, null=True, default="")
     ques_type = models.CharField(max_length=50, choices=QUESTION_TYPES)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(default=get_current_time())
 
     def __str__(self):
         return f'{self.ques}'

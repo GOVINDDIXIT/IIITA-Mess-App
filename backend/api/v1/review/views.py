@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from . import serializers
-from review.models import ReviewQuestion
+from review_ques.models import ReviewQuestion
 
 
 @api_view(['POST'])

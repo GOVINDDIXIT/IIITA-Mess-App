@@ -2,7 +2,7 @@ import datetime
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
 
-from review.models import ReviewQuestion
+from review_ques.models import ReviewQuestion
 
 
 class Command(BaseCommand):

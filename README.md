@@ -1,2 +1,2 @@
 # Mess-App
-This is the repository of Mess App targeted for mess committee members only.
+A Complete Mess App targeted for mess committee members to digitalise the way of submittimg daily mess reports.

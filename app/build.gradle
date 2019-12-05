@@ -21,7 +21,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:27.1.1'
     implementation 'devlight.io:navigationtabbar:1.2.5'
